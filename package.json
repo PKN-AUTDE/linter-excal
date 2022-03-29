@@ -2,6 +2,7 @@
   "name": "linter-excal",
   "displayName": "linter-excal",
   "description": "excal extension for https://github.com/fnando/vsco",
+  "repository" : "https://github.com/PKN-AUTDE/linter-excal",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.65.0"
