@@ -1,0 +1,72 @@
+{
+  "name": "linter-excal",
+  "displayName": "linter-excal",
+  "description": "excal extension for https://github.com/fnando/vsco",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.65.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "linter-excal.config": {
+          "default": {
+            "capabilities": [],
+            "command": [
+              "excal",
+              "-f",
+              "$file",
+              "-out",
+              "json",
+              "-fcfg"
+            ],
+            "configFiles": [],
+            "enabled": true,
+            "languages": [
+              "c",
+              "cpp"
+            ],
+            "name": "EXCAL",
+            "url": "https://github.com/PKN-AUTDE/excal"
+          },
+          "title": "The EXCAL linter configuration",
+          "type": "object"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.65.0",
+    "@typescript-eslint/parser": "^5.12.1",
+    "@vscode/test-electron": "^2.1.2",
+    "glob": "^7.2.0",
+    "mocha": "^9.2.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "vscode-linter-api": "github:fnando/vscode-linter-api",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "extensionDependencies": [
+    "fnando.linter"
+  ]
+}
